@@ -1,11 +1,20 @@
-import Koa from "koa";
-import next from "next";
-import { default as createShopifyAuth } from "@shopify/koa-shopify-auth";
-import { config } from "dotenv";
-import { verifyRequest } from "@shopify/koa-shopify-auth";
-import session from "koa-session";
-import "isomorphic-fetch";
-config();
+// const Koa = require("koa");
+// import next from "next";
+// import { default as createShopifyAuth } from "@shopify/koa-shopify-auth";
+// import { config } from "dotenv";
+// import { verifyRequest } from "@shopify/koa-shopify-auth";
+// import session from "koa-session";
+// import "isomorphic-fetch";
+
+const Koa = require("koa");
+const next = require("next");
+const { default: createShopifyAuth } = require("@shopify/koa-shopify-auth");
+const dotenv = require("dotenv");
+const { verifyRequest } = require("@shopify/koa-shopify-auth");
+const session = require("koa-session");
+require("isomorphic-fetch");
+
+dotenv.config();
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
@@ -25,7 +34,7 @@ app.prepare().then(() => {
       scopes: ["read_products"],
       afterAuth(ctx) {
         const { shop, accessToken } = ctx.session;
-
+        ctx.cookies.set("shopOrigin", shop, { httpOnly: false });
         ctx.redirect("/");
       }
     })
