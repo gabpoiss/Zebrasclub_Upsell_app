@@ -15,6 +15,7 @@ const session = require("koa-session");
 require("isomorphic-fetch");
 dotenv.config();
 const { default: graphQLProxy } = require("@shopify/koa-shopify-graphql-proxy");
+// const validateWebhook = require("./server/webhooks");
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
@@ -27,6 +28,8 @@ app.prepare().then(() => {
   const server = new Koa();
   server.use(session(server));
   server.keys = [SHOPIFY_API_SECRET_KEY];
+  //   router.post("/webhooks/products/create", validateWebhook);
+
   server.use(
     createShopifyAuth({
       apiKey: SHOPIFY_API_KEY,
