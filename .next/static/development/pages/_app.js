@@ -24001,7 +24001,7 @@ exports.isClient = !exports.isServer;
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: ObservableQuery, NetworkStatus, FetchType, isApolloError, ApolloError, ApolloClient, Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, gql, HttpLink, default, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: Observable, createOperation, makePromise, toPromise, fromPromise, fromError, getOperationName, empty, from, split, concat, ApolloLink, execute, gql, HttpLink, default, ObservableQuery, NetworkStatus, FetchType, isApolloError, ApolloError, ApolloClient, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
